@@ -4,14 +4,14 @@ const app = express();
 const router = express.Router();
 
 router.use('/product', (req, res, next) => {
-    console.log('request :', req);
+    res.json({name: "Sarjono", email: "sjn060370@gmail.com"});
+    next();
 })
 
-// router.use('/product', (req, res, next)=>{
-//     console.log('request :',req);
-// })
-
-
+router.use('/price', (req, res, next) => {
+    res.json({price : 300000});
+    next();
+})
 app.use('/', router);
 
 // GET 'user/' ===>[{name: sarjono}]
