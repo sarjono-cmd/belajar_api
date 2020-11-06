@@ -1,11 +1,19 @@
 const express = require('express');
 
 const app = express();
+const router = express.Router();
 
-app.use(() =>{
-    console.log('halooo server1')
-    console.log('halooo server2')
-    console.log('haloo server3')
+router.use('/product', (req, res, next)=>{
+    console.log('request :',req);
 })
+
+// router.use('/product', (req, res, next)=>{
+//     console.log('request :',req);
+// })
+
+
+app.use('/', router);
+
+// GET 'user/' ===>[{name: sarjono}]
 
 app.listen(4000);
